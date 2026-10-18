@@ -27,7 +27,7 @@ times = []
 for h , m in zip(hours, minutes):
     times.append(f"{h:02d}:{m:02d}")
 item_col = np.random.choice(items , N)
-qty = np.random.choice([1,2,3], N , [0.7, 0.2,0.1])
+qty = np.random.choice([1,2,3], N , p =[0.7, 0.2,0.1])
 amount =[]
 for i , q in zip(item_col, qty):
     amount.append(round(menu[i] * q, 2))
