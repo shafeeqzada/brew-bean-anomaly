@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 def clean(df):
+    """Clean the data: fill missing values, build timestamp, drop bad rows."""
     df = df.copy()
     df.amount = df.amount.fillna(df.amount.median())
     df.payment_method = df.payment_method.fillna("unknown")
@@ -10,6 +11,7 @@ def clean(df):
     df = df.dropna(subset = ["timestamp"])
     return df
 def engineer(df):
+    """Add features: hour_of_day, day_of_week, log_amount, payment one-hot."""
     df = df.copy()   
     df["hour_of_day"] = df.timestamp.dt.hour
     df["day_of_week"] = df.timestamp.dt.dayofweek
