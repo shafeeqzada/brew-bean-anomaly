@@ -33,3 +33,16 @@ Tests also run automatically on every push using GitHub Actions.
 **Results (test set):** ROC AUC = **0.XXX**. The confusion matrix is in `confusion_matrix.png`.
 
 **How to run:** `python inject_anomalies.py`, then `python train_model.py`, then `python evaluation.py`.
+
+
+## Task 4: Streamlit dashboard for anomaly review
+
+`app.py` loads the trained IsolationForest (`model/isolation_forest.pkl`) through `predict.py`, predicts anomalies on the synthetic transactions and shows:
+- sidebar filters for date range and hour of day
+- a table with an `anomaly` column (True/False), anomalies highlighted in red
+- a Plotly line chart of amount over time with red markers for anomalies
+- a download button for the flagged transactions (CSV)
+
+Run it:
+pip install -r requirements.txt
+streamlit run app.py
