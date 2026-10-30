@@ -15,8 +15,8 @@ if not os.path.exists(csv_path):
 
 def highlight_anomaly(row):
     if row["anomaly"] == True:
-        return ["background-color: #ffcccc"] *len(row)
-    return[""] * len(row)
+        return ["background-color: #ffcccc"] * len(row)
+    return [""] * len(row)
 
 if os.path.exists(csv_path):
     #data padho aur model se anomaly flags lagwao
